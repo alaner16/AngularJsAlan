@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AngularJs App</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="main" ng-app="AngularJsApp" ng-controller="listingController">
+            <h1>Company's List</h1>
+            <button class="btnClass" ng-click="landscape = !landscape">Landscape</button>
+            <div id="display" scrolly="lazyLoad()" ng-class="{displayCompanys: !landscape, displayCompanysLandscape: landscape}">
+                <ul ng-class="{itemImage: !landscape, itemImagelandscape: landscape}">
+                    <li ng-repeat="i in returnCompanys()">
+                        <div ng-If="i.Image" class="item">
+                            <h3 class="titleImage">{{i.company}}</h3>
+                            <img src="{{i.Image}}" alt="">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> -->
+        <script src="js/angular.min.js"></script>
+        <script src="js/listingController.js"></script>
+        <script src="directives/scrolly.js"></script>
+        <script src="services/listingService.js"></script>
+    </body>
+</html>

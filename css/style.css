@@ -1,0 +1,94 @@
+.displayCompanys {
+    width: 700px;
+    display: flex;
+    flex-direction: vertical;
+    max-height: 1000px;
+    overflow: scroll;
+}
+
+.displayCompanysLandscape {
+    width: 1000px;
+    display: flex;
+    max-height: 700px;
+    overflow: scroll;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+    list-style: none;
+    position: relative;
+}
+
+.item > img {
+    width: 200px;
+    height: 200px;
+}
+
+.titleImage {
+    position: absolute;
+    font-size: 24px;
+    margin: auto;
+    width: 200px;
+    
+}
+
+.itemImage {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.itemImage > li {
+    list-style: none;
+    padding: 0px;
+}
+
+.itemImagelandscape > li {
+    list-style: none;
+    padding: 0px;
+}
+
+.itemImagelandscape {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.btnClass{
+    background-color: #000000;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    border: 1px solid #000000;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
