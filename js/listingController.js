@@ -1,18 +1,21 @@
 var AngularJsApp = angular.module("AngularJsApp", []);
-AngularJsApp.controller("listingController", function($scope, listingService){
-    $scope.CompanyListAll = JSON.parse(listingService.getListing());
-    $scope.CompanyListAll.forEach(obj => {
-        obj.Image = obj.image_List ? obj.image_List.split("|")[0] : null;
-    });
+AngularJsApp.controller("listingController", async function($scope, listingService, $http){
     $scope.landscape = false;
-    $scope.CompanyList = $scope.CompanyListAll.slice(0, 30);
-    $scope.landscapeButton = function(){
-        $scope.landscape = !$scope.landscape;
-    }; 
+    listingService.getListing().then(response => {
+        $scope.CompanyListAll = response.data;
+        $scope.CompanyListAll.forEach(obj => {
+            obj.Image = obj.image_List ? obj.image_List.split("|")[0] : null;
+        });
+        $scope.CompanyList = $scope.CompanyListAll.slice(0, 30);
+    }, (error) => {
+        $scope.CompanyListAll = [];
+        alert("Backend error.");
+        console.log(error);
+    });
     $scope.lazyLoad = function () {
         $scope.CompanyList = $scope.CompanyList.concat($scope.CompanyListAll.slice($scope.CompanyList.length, $scope.CompanyList.length + 30));
     };
     $scope.returnCompanys = function(){
         return $scope.CompanyList;
     };
-})
+});
